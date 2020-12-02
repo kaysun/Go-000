@@ -5,15 +5,15 @@ import (
 	"github.com/kaysun/Go-000/Week02/dao"
 
 	"fmt"
-	"github.com/kaysun/Go-000/Week02/model"
+	"github.com/kaysun/Go-000/Week02/business"
 )
 
 type UserService struct {
-	UserModel model.UserModel
+	UserModel business.UserModel
 }
 
 func(service UserService) DemandUser (UserID int) {
-	service.UserModel = model.UserModel{}
+	service.UserModel = business.UserModel{}
 	user, err := service.UserModel.DemandUser(UserID)
 	flag := errors.Is(err, dao.ErrNoRows)
 	fmt.Println(user, err)
